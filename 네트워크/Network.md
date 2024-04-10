@@ -107,3 +107,101 @@ Host 자신을 가리키는 IP주소
 나에게 접속, 접근, 연결 할 때 
 
 널널한 개발자 :인터넷은 라우터의 집합체 라고 할 수 있는 논리 네트워크이다.
+
+
+TTL과 단편화 
+
+Time TO Live는 세포의 텔로미어 같은 역할을 한다.
+단편화는 MTU크기 차이로 발생한다.
+보통 단편의 조립은 수신측 Host에서 이루어진다.
+
+Packet -> Dst 실패 
+
+128이라고 할때 라우터를 지날때마다 -1씩 된다
+
+VPN IPSec이 보안 때문에 단편화가 날 수 있다.
+
+
+인터넷 설정 자동화를 위한 DHCP
+
+인터넷 사용전에 해야 할 설정 
+IP주소
+Subnet mask
+Gateway IP주소
+DNS 주소
+
+보통은 자동으로 설정된다
+
+DHCP(Dynamic Host Configuration Protocol)
+체계는 주소를 할당하는 서버와 할당 받으려는 클라이언트로 구성된다.
+
+복잡한 인터넷 설정을 자동으로 해준다고 볼 수 있는데 핵심은 내가 사용할 IP주소를 서버가 알려준다는 것에 있다.
+
+
+ARP(Address Resolution Protocol)
+
+ARP는 IP주소로 MAC주소를 알아내려 할 때 활용된다.
+보통의 경우 PC를 부팅하면 Gateway의 MAC를 찾아내기 위해 ARP Request가 발생하며 이에 
+대응하는 Reply로 MAC주소를 알 수 있다.
+
+Host 주소는 MAC 주소, IP주소가 있다.
+
+
+Ping과 RTT
+
+Ping 유틸리티(그냥 프로그램)는 특정 Host 대한 RTT(Round Trip Time)을 측정할 목적으로 사용된다.
+ICMP 프로토콜을 이용한다.
+DoS(Denial of Service) 공격용으로 악용되기도 한다.
+
+L4
+
+TCP와 UDP
+
+TCP에만 연결(Connection, Session) 개념이 있다.
+연결은 결과적으로 순서번호로 구현된다.
+연결은 상태(전이) 개념을 동반한다. 상태(전이) 란 ? : 통화로 비유 하자면 통화걸기전 , 통화 연걸 후 
+TCP는 배려남, UDP는 (배려가 없는) 나쁜 남자에 비유할 수 있다.
+
+TCP 연결 과정 (3-way handshaking)
+
+client : SYN  - > server : SYN + ACK -> client : ACK
+
+TPC 연결 종료 과정(4-way handshaking)
+
+client : FIN + ACK 보냄
+server에서 ACK를 받음 
+
+server : FIN + ACK 보냄
+client에서 ACK를 받음 
+
+
+TCP Header 형식
+(사진 첨부)
+
+UDP Header 형식
+(사진 첨부)
+
+
+TCP '연결'이라는 착각 
+
+재전송 타이머의 기본 근사 값은 대략 3초, 하지만
+대부분의 운영체제들은 1초 미만이다.
+
+재전송 타이머 만료 후에도 확인 응답을 받지 못한 경우 세그먼트를 재전송하고 
+RTO(Retransmission Time-Out) 값은 두 배로 증가한다.
+예를들어 1초> 2초> 4초> 8초> 16초 간격으로 재전송한다.
+보통 최대 5회 재전송을 시도하고 5회 이상 모두 실패할 경우 보통 전송 오류가 발생한다.
+
+
+DNS 
+
+분산 구조형 데이터베이스 
+
+데이터베이스 시스템의 분산 구성
+데이터의 영역별 구분 및 분산관리
+도메인의 네임서버 및 도메인 데이터는 해당 관리주체에 의해 독립적으로 관리됨
+
+트리 구조의 도메인 네임 체계
+Domain : 영역, 영토를 의미
+도메인 네임의 자율적 생성
+생성된 도메인 네임은 언제나 유일 하도록 네임 체계 구성
