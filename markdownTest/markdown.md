@@ -15,7 +15,7 @@ this **markdown**
 ___
 * 목록
 
-   1.숫자 목록
+  1.숫자 목록
 
 <!--Link-->
 #### Link
@@ -40,9 +40,17 @@ ___
  <!--Code-->
 #### Code
 ___
- `console.log('you message')`
+ `console.log('you message')` 코드 강조
 
 
+```java
+console.log('you message') 블럭이 만들어짐
+```
+
+#### Github Flavored Markdown
+___
+
+더 깊이 그리고 스타일리쉬하게 쓰고 싶으면 찾아서 공부 
 
 
 
